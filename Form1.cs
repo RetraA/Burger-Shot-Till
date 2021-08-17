@@ -103,7 +103,7 @@ namespace BurgerShot_example
         private void Button9_Click(object sender, EventArgs e)
         {
             totalCost = donut + totalCost;
-            textBox1.AppendText("Donut - $500\n");
+            textBox1.AppendText("Donut - $150\n");
             textBox1.AppendText(Environment.NewLine);
             costLabel.Text = "Total: $" + totalCost.ToString(); costLabel.Text = "Total: $" + totalCost.ToString();
         }
