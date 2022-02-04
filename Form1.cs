@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,14 +16,15 @@ namespace BurgerShot_example
         int heartStopper = 800;
         int bleeder = 500;
         int fries = 200;
-        int torpedo = 600;
-        int moneyShot = 400;
+        int moneyShot = 600;
         int meatFree = 1000;
         int donut = 150;
-        int coffee = 750;
+        int meteoriteIceCream = 750;
         int water = 200;
         int softDrink = 400;
-        int milkShake = 750;
+        int otIceCream = 750;
+
+
 
         public Form1()
         {
@@ -78,16 +79,13 @@ namespace BurgerShot_example
 
         private void Button7_Click(object sender, EventArgs e)
         {
-            totalCost = torpedo + totalCost;
-            textBox1.AppendText("Torpedo - $600\n");
-            textBox1.AppendText(Environment.NewLine);
-            costLabel.Text = "Total: $" + totalCost.ToString(); costLabel.Text = "Total: $" + totalCost.ToString();
+
         }
 
         private void Button6_Click(object sender, EventArgs e)
         {
             totalCost = moneyShot + totalCost;
-            textBox1.AppendText("Money Shot - $400\n");
+            textBox1.AppendText("Money Shot - $600\n");
             textBox1.AppendText(Environment.NewLine);
             costLabel.Text = "Total: $" + totalCost.ToString(); costLabel.Text = "Total: $" + totalCost.ToString();
         }
@@ -110,8 +108,8 @@ namespace BurgerShot_example
 
         private void Button8_Click(object sender, EventArgs e)
         {
-            totalCost = milkShake + totalCost;
-            textBox1.AppendText("Milkshake - $750\n");
+            totalCost = otIceCream + totalCost;
+            textBox1.AppendText("Orange Tango Ice Cream - $750\n");
             textBox1.AppendText(Environment.NewLine);
             costLabel.Text = "Total: $" + totalCost.ToString(); costLabel.Text = "Total: $" + totalCost.ToString();
         }
@@ -139,10 +137,48 @@ namespace BurgerShot_example
 
         private void Button15_Click(object sender, EventArgs e)
         {
-            totalCost = coffee + totalCost;
-            textBox1.AppendText("Coffee - $750\n");
+            totalCost = meteoriteIceCream + totalCost;
+            textBox1.AppendText("Meteorite Ice Cream - $750\n");
             textBox1.AppendText(Environment.NewLine);
             costLabel.Text = "Total: $" + totalCost.ToString(); costLabel.Text = "Total: $" + totalCost.ToString();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+        protected override void WndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case 0x84:
+                    base.WndProc(ref m);
+                    if ((int)m.Result == 0x1)
+                        m.Result = (IntPtr)0x2;
+                    return;
+                    //Ability to move program with mouse
+            }
+
+            base.WndProc(ref m);
+        }
+
+        private void panel1_Paint()
+        {
+        }
+
+        private void Label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button11_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void Button10_Click_1(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
